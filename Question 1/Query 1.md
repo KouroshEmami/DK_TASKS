@@ -5,7 +5,7 @@ WITH RankedBooks AS (
     genre,
     title,
     rating,
-    RANK() OVER (PARTITION BY genre ORDER BY rating DESC) AS rating_rank
+    DENSE_RANK() OVER (PARTITION BY genre ORDER BY rating DESC) AS rating_rank
   FROM books
 )
 SELECT
